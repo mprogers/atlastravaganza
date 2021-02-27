@@ -21,6 +21,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void _addCountry(BuildContext context) {}
   int selectedIndex = 0;
   List<Widget> screens = [
     Consumer<Atlas>(
@@ -37,7 +38,13 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
-        appBar: AppBar(title: Text('Atlastravaganza')),
+        appBar: AppBar(
+            title: Text('Atlastravaganza'),
+            leading: IconButton(
+                icon: Icon(Icons.add),
+                onPressed: () {
+                  _addCountry(context);
+                })),
         body: screens[selectedIndex], // Text('This app needs work!'),
         bottomNavigationBar: BottomNavigationBar(
             onTap: _handleTap,
